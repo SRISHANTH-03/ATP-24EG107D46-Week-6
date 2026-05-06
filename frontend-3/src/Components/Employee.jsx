@@ -21,15 +21,10 @@ function Employee() {
             `${import.meta.env.VITE_API_URL}/emp-api/employees/${id}`
           );
 
-          const foundEmp = res.data.payload.find((e) => e._id === id);
+          setEmp(res.data.payload);
 
-          if (foundEmp) {
-            setEmp(foundEmp);
-          } else {
-            setError("Employee not found");
-          }
         } catch (err) {
-          setError(err.message);
+          setError(err.response?.data?.message || err.message);
         } finally {
           setLoading(false);
         }
@@ -61,11 +56,26 @@ function Employee() {
         <p className="text-2xl sm:text-3xl font-semibold mb-4">
           Employee Details
         </p>
-        <p><b>Name:</b> {emp.name}</p>
-        <p><b>Email:</b> {emp.email}</p>
-        <p><b>Mobile Number:</b> {emp.mobile}</p>
-        <p><b>Designation:</b> {emp.designation}</p>
-        <p><b>Company Name:</b> {emp.companyName}</p>
+
+        <p>
+          <b>Name:</b> {emp.name}
+        </p>
+
+        <p>
+          <b>Email:</b> {emp.email}
+        </p>
+
+        <p>
+          <b>Mobile Number:</b> {emp.mobile}
+        </p>
+
+        <p>
+          <b>Designation:</b> {emp.designation}
+        </p>
+
+        <p>
+          <b>Company Name:</b> {emp.companyName}
+        </p>
       </div>
     </div>
   );
