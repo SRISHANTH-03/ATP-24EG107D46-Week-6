@@ -18,7 +18,7 @@ function Employee() {
           setLoading(true);
 
           const res = await axios.get(
-            `http://localhost:6001/emp-api/employees`
+            `${import.meta.env.VITE_API_URL}/emp-api/employees/${id}`
           );
 
           const foundEmp = res.data.payload.find((e) => e._id === id);

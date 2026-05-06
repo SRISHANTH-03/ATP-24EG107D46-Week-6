@@ -17,7 +17,7 @@ function CreateEmp() {
     try {
       setLoading(true);
 
-      let res = await fetch("http://localhost:6001/emp-api/employees", { 
+      let res = await fetch(`${import.meta.env.VITE_API_URL}/emp-api/employees`, { 
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(newEmpObj),

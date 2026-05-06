@@ -21,7 +21,7 @@ function EditEmployee() {
           setLoading(true);
 
           const res = await axios.get(
-            "http://localhost:6001/emp-api/employees"
+            `${import.meta.env.VITE_API_URL}/emp-api/employees/${id}`
           );
 
           const foundEmp = res.data.payload.find((e) => e._id === id);
@@ -59,7 +59,7 @@ function EditEmployee() {
       setLoading(true);
 
       const res = await axios.put(
-        `http://localhost:6001/emp-api/employees/${id}`,
+        `${import.meta.env.VITE_API_URL}/emp-api/employees/${id}`,
         modifiedEmp
       );
 

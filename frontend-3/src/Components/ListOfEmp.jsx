@@ -21,7 +21,7 @@ function ListOfEmp() {
       try {
         setLoading(true);
 
-        let res = await axios.get("http://localhost:6001/emp-api/employees");
+        let res = await axios.get(`${import.meta.env.VITE_API_URL}/emp-api/employees`);
 
         if (res.status === 200) {
           let resObj = res.data; 
@@ -44,7 +44,7 @@ function ListOfEmp() {
     if (!confirmDelete) return;
 
     try {
-      await axios.delete(`http://localhost:6001/emp-api/employees/${id}`); 
+      await axios.delete(`${import.meta.env.VITE_API_URL}/emp-api/employees/${id}`);
 
       setEmps((prev) => prev.filter((emp) => emp._id !== id));
     } catch (err) {
