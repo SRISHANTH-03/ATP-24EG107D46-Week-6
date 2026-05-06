@@ -11,7 +11,8 @@ const app = express();
 // CORS middleware
 app.use(
   cors({
-    origin: ["http://localhost:5173"],
+    origin: ["http://localhost:5173", "https://atp-24-eg-107-d46-week-6-flrm-77jy9c25a-srishanth-03s-projects.vercel.app"],
+    
   })
 );
 
