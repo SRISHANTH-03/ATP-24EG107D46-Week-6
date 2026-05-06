@@ -76,8 +76,11 @@ const connectDB = async () => {
       console.log(`Server running on port ${PORT}`)
     );
   } catch (err) {
-    console.error("DB connection failed:", err.message);
-    process.exit(1); // exit process on failure
+    // console.error("DB connection failed:", err.message);
+    // process.exit(1); // exit process on failure
+   
+    console.error("FULL ERROR:", err);
+    process.exit(1);
   }
 };
 
